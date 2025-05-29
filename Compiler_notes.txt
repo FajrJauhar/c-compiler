@@ -1,0 +1,36 @@
+convertion of source code to machine language:
+
+Step 1: Lexical analysis(Lexer):
+breaks source code and converts to tokens like:
+int → Keyword
+x → Identifier
+= → Operator
+5 → Literal
+; → Separator
+
+Step 2: Syntax Analysis(Parser):
+Takes the tokens and arrange them in a syntax Tree(Abstract syntax Tree) based on the grammer rules
+For int x=5;
+Assignment
+├── Type: int
+├── Variable: x
+└── Value: 5
+
+Step 3: Semantic Analysis:
+It checks the AST for semantic correctness(type checking, variable declaration,scope resolution) like
+x is declared before and 5 is a valid integer
+
+Step 4: Intermediate Code Generation:
+makes up a code that is platform independent and works on lower levels
+
+Step 5: Optimization
+
+Step 6: Code Generation:
+Generates the optimized IR to machine code according to the base architecture (x86_64)
+For int x=5; it would look like in assembly: MOV R1,#5
+                                             STR R1,[x]
+This produces the final Executable
+
+Step 6: Linking
+linkes the executable with other libraries and modules for final executable
+  
